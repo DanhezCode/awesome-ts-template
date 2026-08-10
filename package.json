@@ -1,0 +1,35 @@
+{
+  "name": "oxlint",
+  "type": "module",
+  "module": "index.ts",
+  "scripts": {
+    "cspell": "cspell lint .",
+    "fmt": "oxfmt --check . 1>/dev/null || oxfmt --check .",
+    "fmt:fix": "oxfmt . 1>/dev/null || oxfmt .",
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix",
+    "check": "bun fmt && bun lint && bun cspell",
+    "fix": "bun fmt:fix && bun lint:fix",
+    "test": "vitest",
+    "test:cov": "vitest --coverage"
+  },
+  "dependencies": {
+    "@cspell/dict-es-es": "3.0.8",
+    "cspell": "10.0.1",
+    "oxfmt": "0.62.0",
+    "oxlint": "1.77.0",
+    "oxlint-tsgolint": "7.0.2001"
+  },
+  "devDependencies": {},
+  "peerDependencies": {
+    "@types/bun": "1.3.14",
+    "@types/node": "26.1.2",
+    "@vitest/coverage-v8": "4.1.10",
+    "typescript": "7.0.2",
+    "vitest": "4.1.10"
+  },
+  "engines": {
+    "bun": "1.3.14"
+  },
+  "packageManager": "bun@1.3.14"
+}
