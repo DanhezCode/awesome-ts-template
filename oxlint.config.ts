@@ -1,4 +1,24 @@
+import type { DummyRuleMap } from "oxlint";
+
 import { defineConfig } from "oxlint";
+
+const jsxRules = {
+  "import/no-unassigned-import": ["error", { allow: ["**/*.{css,svg,png}"] }],
+  "react-perf/jsx-no-new-function-as-prop": ["error", { nativeAllowList: "all" }],
+  "react/forbid-component-props": "off",
+  "react/jsx-filename-extension": "off",
+  "react/jsx-max-depth": ["warn", { max: 8 }],
+  "react/jsx-no-literals": "off",
+  "react/no-multi-comp": "off",
+  "react/only-export-components": ["error", { allowConstantExport: true }],
+  "react/react-in-jsx-scope": "off",
+  "unicorn/filename-case": "off",
+} satisfies DummyRuleMap;
+
+const preactRules = {
+  "react/no-unknown-property": ["warn", { ignore: ["class"] }],
+  "react/react-compiler": "off",
+} satisfies DummyRuleMap;
 
 // oxlint-disable-next-line import/no-default-export
 export default defineConfig({
@@ -38,19 +58,41 @@ export default defineConfig({
     "unicorn",
   ],
 
+  options: {
+    typeCheck: true,
+    typeAware: true,
+  },
+
   rules: {
+    ...jsxRules,
+    ...preactRules,
+
     "capitalized-comments": "off",
-    // curly: ["error", "multi-line"],
+    "eslint/max-lines-per-function": [
+      "warn",
+      {
+        max: 80,
+      },
+    ],
+    "eslint/max-statements": [
+      "warn",
+      {
+        max: 20,
+      },
+    ],
     "func-names": ["error", "as-needed", { generators: "never" }],
     "func-style": "off",
     "id-length": "off",
+    "import/exports-last": "off",
+    "import/group-exports": "off",
     "import/no-default-export": "warn",
     "import/no-duplicates": "off",
     "import/no-empty-named-blocks": "error",
     "import/no-named-export": "off",
     "import/no-nodejs-modules": "off",
     "import/prefer-default-export": "off",
-    "no-duplicate-imports": "error",
+    "no-duplicate-imports": ["error", { allowSeparateTypeImports: true }],
+    "no-inline-comments": ["off"],
     "no-magic-numbers": [
       "warn",
       {
@@ -66,11 +108,21 @@ export default defineConfig({
         ignoreTypeIndexes: true,
       },
     ],
+    "no-plusplus": "off",
+    "no-ternary": ["off"],
     "no-undef": "off",
+    "no-undefined": "off",
     "no-unused-vars": "off",
+    "no-use-before-define": ["warn", { functions: false }],
+    "oxc/no-async-await": "off",
+    "oxc/no-optional-chaining": "off",
     "oxc/no-rest-spread-properties": "off",
     "prefer-object-spread": "error",
+    "require-await": "off",
+    "sort-imports": "off", // Fix by oxfmt
+    "sort-keys": ["warn", "asc", { allowLineSeparatedGroups: true, minKeys: 4, natural: true }],
     "typescript/explicit-function-return-type": "off",
+    "typescript/explicit-module-boundary-types": "off",
     "typescript/no-unused-vars": [
       "error",
       {
@@ -91,6 +143,21 @@ export default defineConfig({
         varsIgnorePattern: "^_{1,2}",
       },
     ],
+    "typescript/prefer-readonly-parameter-types": "off",
+    "typescript/strict-boolean-expressions": [
+      "warn",
+      {
+        allowAny: false,
+        allowNullableBoolean: false,
+        allowNullableEnum: false,
+        allowNullableNumber: false,
+        allowNullableObject: true,
+        allowNullableString: true,
+        allowNumber: true,
+        allowString: true,
+      },
+    ],
+    "unicorn/no-null": "off",
     "unicorn/require-module-specifiers": "off",
   },
 });
