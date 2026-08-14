@@ -85,6 +85,7 @@ export default defineConfig({
     "id-length": "off",
     "import/exports-last": "off",
     "import/group-exports": "off",
+    "import/no-anonymous-default-export": ["warn", { allowObject: true, allowArray: true }],
     "import/no-default-export": "warn",
     "import/no-duplicates": "off",
     "import/no-empty-named-blocks": "error",
