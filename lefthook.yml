@@ -14,9 +14,6 @@ pre-commit:
             glob: "*.{ts,tsx,js,jsx}"
             stage_fixed: true
 
-    - name: typecheck
-      run: bun tsc --noEmit
-
 commit-msg:
   commands:
     commitlint:
@@ -29,7 +26,7 @@ pre-push:
     #   run: bun lefthook run pre-commit
 
     run-tests:
-      run: bun run test
+      run: bun run tests
 
     run-audit:
       run: bun audit

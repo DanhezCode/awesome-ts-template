@@ -9,9 +9,9 @@
     "lint:fix": "oxlint --fix",
     "check": "bun fmt && bun lint && bun cspell",
     "fix": "bun fmt:fix && bun lint:fix",
-    "test": "vitest run",
-    "test:watch": "vitest",
-    "test:cov": "vitest run --coverage",
+    "tests": "vitest run",
+    "tests:watch": "vitest",
+    "tests:cov": "vitest run --coverage",
     "postinstall": "lefthook install"
   },
   "dependencies": {},
