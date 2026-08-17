@@ -1,21 +1,15 @@
+// Configuration entry point: default export is intentional.
+// Tracked by: https://github.com/DanhezCode/awesome-config/issues/1
+// Blocked by: https://github.com/oxc-project/oxc/issues/25824
+// oxlint-disable import/no-default-export
+
 /**
  * Semantic Release configuration.
- *
- * To enable Semantic Release, remove the `.example` extension from:
- * `.github/workflows/release.yml.example`
- *
- * npm publishing uses Trusted Publishing with GitHub Actions (OIDC).
- * Before enabling this workflow, configure the repository and package
- * in npm as described in the official documentation:
- *
- * https://docs.npmjs.com/trusted-publishers
  *
  * The Release workflow requires `id-token: write` permission to obtain
  * the OIDC token used by npm Trusted Publishing.
  */
-
 /** @type {import('semantic-release').GlobalConfig} */
-// oxlint-disable-next-line import/no-default-export
 export default {
   branches: [
     "main",
@@ -53,8 +47,14 @@ export default {
       },
     ],
 
-    // Comment out the plugins you do not want to publish to.
-    "@semantic-release/npm", // → publish to npm
+    /*
+     * npm publishing uses Trusted Publishing with GitHub Actions (OIDC).
+     * Before enabling this workflow, configure the repository and package
+     * in npm as described in the official documentation:
+     * https://docs.npmjs.com/trusted-publishers
+     */
+    // "@semantic-release/npm", // → publish to npm
+
     "@semantic-release/github", // → create a GitHub Release
   ],
 };

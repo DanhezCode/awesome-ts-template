@@ -1,24 +1,6 @@
-import { defineConfig } from "cspell";
+// Configuration entry point: default export is intentional.
+// Tracked by: https://github.com/DanhezCode/awesome-config/issues/1
+// Blocked by: https://github.com/oxc-project/oxc/issues/25824
+// oxlint-disable import/no-default-export
 
-// oxlint-disable-next-line import/no-default-export
-export default defineConfig({
-  dictionaries: [
-    "typescript",
-    "git",
-    "bash",
-    "sql",
-    "filetypes",
-    "node",
-    "npm",
-    "html",
-    "css",
-    "json",
-    "markdown",
-    "softwareTerms",
-  ],
-  files: ["**/*.{js,ts,jsx,tsx,txt,md}"],
-  ignorePaths: ["node_modules", "dist", "coverage", "build"],
-  import: ["@cspell/dict-es-es/cspell-ext.json"],
-  language: "en,es,es-ES",
-  words: ["oxlint", "oxfmt", "tsgolint"],
-});
+export { default } from "awesome-config/cspell.config";

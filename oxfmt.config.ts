@@ -1,17 +1,6 @@
-import { defineConfig } from "oxfmt";
+// Configuration entry point: default export is intentional.
+// Tracked by: https://github.com/DanhezCode/awesome-config/issues/1
+// Blocked by: https://github.com/oxc-project/oxc/issues/25824
+// oxlint-disable import/no-default-export
 
-// oxlint-disable-next-line import/no-default-export
-export default defineConfig({
-  sortTailwindcss: true,
-  sortImports: {
-    groups: [
-      "type-import",
-      ["value-builtin", "value-external"],
-      "type-internal",
-      "value-internal",
-      ["type-parent", "type-sibling", "type-index"],
-      ["value-parent", "value-sibling", "value-index"],
-      "unknown",
-    ],
-  },
-});
+export { default } from "awesome-config/oxfmt.config";
