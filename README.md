@@ -8,17 +8,20 @@ validation already configured.
 
 ## Philosophy
 
-This template follows a simple philosophy:
+This template uses [awesome-config](https://github.com/DanhezCode/awesome-config)
+as its foundation for an opinionated development setup.
 
-> **Prefer simple, modern, maintainable, and efficient solutions over
-> unnecessary complexity.**
+It provides a carefully selected configuration baseline that makes TypeScript
+projects ready to use from the start, with modern tooling, strict quality
+standards, and automated validation already configured.
 
-The configuration is intentionally opinionated. It provides sensible defaults
-based on established practices instead of trying to support every possible
+The goal is to avoid spending time setting up and maintaining project
+configuration. Instead, start building with a consistent, reliable, and
+production-ready development environment.
+
+The configuration is intentionally opinionated. It focuses on simple, modern,
+maintainable, and efficient solutions instead of supporting every possible
 workflow.
-
-The goal is to start with a solid foundation and spend time building the
-project, not configuring its tooling.
 
 ## Tooling
 
